@@ -1,3 +1,9 @@
+# Ignore Mac system files
+.DS_store
+
+# Ignore node_modules folder
+node_modules
+
 # Build and Release Folders
 bin-debug/
 bin-release/
