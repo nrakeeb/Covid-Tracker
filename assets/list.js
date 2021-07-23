@@ -15,7 +15,7 @@ var searchCountry = document.querySelector(".search");
 // add country list element
 var countryList = document.querySelector(".g7-list");
 // add button to change country
-var changCountry = document.querySelector(".change");
+var changeCountry = document.querySelector(".change");
 // add button to close list
 var closeList = document.querySelector(".close");
 // add input to acknowledge searches
@@ -35,6 +35,27 @@ function createCountryList() {
 var numOflists = 3;
 
 createCountryList();
+
+function changeCountr() {
+    
+}
+
+function listG7 () {
+
+
+}
+
+function close () {
+
+
+}
+
+function userInput () {
+
+
+
+}
+
 
 
 
