@@ -23,3 +23,17 @@ fetch("https://api.ipgeolocation.io/ipgeo?apiKey=87c06e069cab4ce597da9c4dc04165d
   .then(function (res) {
     return res.json(); // list of countries 
   })
+
+  .then(function (data) {
+    var countryCode = data.country_code2;// inside json it has a county code 
+    var userCountry;
+    
+    // this matches the code from list.js with the data fetched from the api.geolocation
+    // country_list is accessible because a variable in the global scope is accessible to all scripts loaded after it is declared.
+    for (var i = 0; i < country_list.length; i++) {
+        if (country_list[i].code === countryCode) {
+          userCountry = country_list[i].name
+        }
+    }
+    fetchData(userCountry);
+  });
