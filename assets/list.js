@@ -36,26 +36,21 @@ var numOflists = 3;
 
 createCountryList();
 
+// upon user interaction via clicking displays search bar for user to search specific country 
 function changeCountr() {
-    
-}
-
-function listG7 () {
-
-
-}
-
-function close () {
-
-
-}
-
-function userInput () {
-
-
-
+    input.value = ""
+    resetCountry ();
+    searchCountry.classlist.toggle("hide");
+    searchCountry.classlist.toggle("fadeIn");
 }
 
 
 
 
+
+// resets lists of countries from previous searches
+function resetCountry () {
+    countr_list.
+
+
+}
