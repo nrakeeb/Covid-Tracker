@@ -34,6 +34,29 @@
                 </div>
                 <div class="g7-list"></div>
             </div>
+            <!-- main info section -->
+        </div>
+        <!-- total cases info (all time + new) -->
+        <div class="total-cases">
+            <div class="title">Total Cases</div>
+            <div class="value">0</div>
+            <div class="new-value">+0</div>
+          </div>
+          <!-- recovered cases info (all time + new)-->
+          <div class="recovered">
+            <div class="title">Recovered</div>
+            <div class="value">0</div>
+            <div class="new-value">+0</div>
+          <!-- deaths info (all time + new)-->
+          <div class="deaths">
+            <div class="title">Deaths</div>
+            <div class="value">0</div>
+            <div class="new-value">+0</div>
+          </div>
+        </div>
+        <!-- line chart representing trajectory of cases from main info section-->
+        <div class="chart">
+          <canvas id="axes_line_chart"></canvas>
         </div>
  </main>
 <script src="assets/list.js"></script>
