@@ -1,0 +1,48 @@
+/* universal & body styling */
+*{
+    font-family: 'Neuton', serif;
+}
+body{
+    background-color: gold;
+    font-size: 20px;
+}
+/* hide search box after user selects country */
+.hide{
+    display: none;
+}
+.fadeIn{
+    animation: fade 0.3s;
+}
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+}
+/* header styling */
+header{
+    display: flex;
+    font-size: 40px;
+    font-weight: bold;
+    color: gold;
+    align-items: center;
+    justify-content: center;    
+    max-width: 1200px;
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    background-color: darkblue;
+}
+
+/* info styling */
+.info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+    color: black;
+}
