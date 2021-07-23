@@ -11,24 +11,61 @@ var country_list = [
 console.log(country_list)
 
 // add search country element 
-var search_country_element = document.querySelector(".search");
+var searchCountry = document.querySelector(".search");
 // add country list element
-var country_list_element = document.querySelector(".g7-list");
+var countryList = document.querySelector(".g7-list");
 // add button to change country
-var chang_country_btn = document.querySelector(".change");
+var changeCountry = document.querySelector(".change");
 // add button to close list
-var close_list_btn = document.querySelector(".close");
+var closeList = document.querySelector(".close");
 // add input to acknowledge searches
 var input = document.getElementById('search-input');
 
 // add function to display country list when searching
-function createCountryList(){
+function createCountryList() {
     // set list to equal total number of countries added
     var num_countries = country_list.length;
     // unordered country list id
     for (var i = 0; i < country_list.length; i++) {
-    console.log("test")
+        console.log("test")
     }
 }
-    
 
+// How many lists declared in drop down
+var numOflists = 3;
+
+createCountryList();
+
+// upon user interaction via clicking displays search bar for user to search specific country 
+function changeCountr() {
+    input.value = ""
+    resetCountry();
+    searchCountry.classList.toggle("hide");
+    searchCountry.classList.toggle("fadeIn");
+}
+
+// hides list of countries in drop-down menu upon clicking
+function close() {
+    searchCountry.classList.toggle("hide");
+}
+
+
+// hides countries searched by user
+function listG7() {
+    searchCountry.classList.toggle("hide");
+}
+
+//
+function userInput() {
+    var value = input.value.toUppercase();
+
+
+}
+
+
+// resets lists of countries from previous searches
+function resetCountry() {
+    countr_list.
+
+
+}
