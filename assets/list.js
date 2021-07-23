@@ -39,23 +39,32 @@ createCountryList();
 // upon user interaction via clicking displays search bar for user to search specific country 
 function changeCountr() {
     input.value = ""
-    resetCountry ();
+    resetCountry();
     searchCountry.classList.toggle("hide");
     searchCountry.classList.toggle("fadeIn");
 }
 
-function close () {
- searchCountry.classList.toggle("hide");
-}
-
-function listG7 () {
+// hides list of countries in drop-down menu upon clicking
+function close() {
     searchCountry.classList.toggle("hide");
 }
 
 
+// hides countries searched by user
+function listG7() {
+    searchCountry.classList.toggle("hide");
+}
+
+//
+function userInput() {
+    var value = input.value.toUppercase();
+
+
+}
+
 
 // resets lists of countries from previous searches
-function resetCountry () {
+function resetCountry() {
     countr_list.
 
 
