@@ -40,11 +40,17 @@ createCountryList();
 function changeCountr() {
     input.value = ""
     resetCountry ();
-    searchCountry.classlist.toggle("hide");
-    searchCountry.classlist.toggle("fadeIn");
+    searchCountry.classList.toggle("hide");
+    searchCountry.classList.toggle("fadeIn");
 }
 
+function close () {
+ searchCountry.classList.toggle("hide");
+}
 
+function listG7 () {
+    searchCountry.classList.toggle("hide");
+}
 
 
 
