@@ -16,3 +16,8 @@ var recoveredList = [];
 var deathsList = [];
 var dates = [];
 var formatedDates = [];
+
+fetch("https://api.ipgeolocation.io/ipgeo?apiKey=87c06e069cab4ce597da9c4dc04165d3")
+  .then(function (res) {
+    return res.json(); // list of countries 
+  })
