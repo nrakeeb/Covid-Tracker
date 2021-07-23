@@ -37,3 +37,14 @@ fetch("https://api.ipgeolocation.io/ipgeo?apiKey=87c06e069cab4ce597da9c4dc04165d
     }
     fetchData(userCountry);
   });
+
+  // fetch API data (cases, recovered, deaths,)
+function fetchData(country) {
+    userCountry = country;
+    countryNameEl.innerHTML = "Loading...";
+  ​
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+}
