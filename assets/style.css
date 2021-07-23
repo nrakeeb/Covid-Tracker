@@ -46,3 +46,122 @@ header{
     padding-top: 50px;
     color: black;
 }
+
+/* main data styling */
+.list{
+    height: 175px;
+    border-style: solid;
+border-color: darkblue;
+background-color: red;}
+.total-cases{
+    height: 175px;
+    border-style: solid;
+border-color: darkblue;
+background-color: aqua;
+color: black;}
+.recovered{
+    height: 175px;
+    border-style: solid;
+    border-color: darkblue;
+    background-color: aqua;
+color: black;}
+.deaths{
+    height: 175px;
+    border-style: solid;
+    border-color: darkblue;
+    background-color: aqua;
+    color: black;}
+.search{
+    font-size: 1.6em;
+    color: black;
+    font-weight: bold;
+}
+.change{
+    cursor: pointer;
+    font-size: 2em;
+    font-weight: bold;
+    color: blue
+}
+.title{
+    font-size: 2em;
+    color: white;
+}
+.total-cases .value{
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white
+}
+.recovered .value{
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+}
+.deaths .value{
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+}
+.new-value{
+    font-size: 1.6em;
+    font-weight: bold;
+    color: white;
+}
+/* chart styling */
+.chart{
+    background-color: beige;
+    width: 80%;
+    height: 70vh;
+    min-height: 500px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+/* search section styling */
+.search-country{
+    position: relative;
+    top: 10px;
+    font-size: 1.1em;
+}
+.box{
+    position: absolute;  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 420px;
+    height: 30px;
+    background-color: black;
+    z-index: 1;
+}
+.search-box input{
+    width: 360px;
+    height: 25px;
+    border: none;
+    background-color: transparent;
+    color: gold;
+    padding-left: 15px;
+    font-size: 1.1em;
+}
+.search-box img{
+    width: 25px;
+    padding-right: 15px;
+    cursor: default;
+}
+/* country list styling */
+.country-list{
+    display: flex;
+    position: absolute;
+    top: 30px;
+    width: 420px;
+    height: 300px;
+    background-color: aqua;
+    opacity: 0.9;
+    overflow-y: scroll;
+}
+.country-list ul{
+    width: 100%;
+}
+.country-list ul li{
+    list-style: none;
+    cursor: pointer;
+    padding: 10px;
+    color: black;
+}
