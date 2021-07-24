@@ -107,3 +107,23 @@ function fetchData(country) {
  * @ description calls the updateStats function which updates the stats with the results from the api call and the axesLinearChart function which creates a new chart
  */
 
+ function updateUI() {
+    updateStats();
+    axesLinearChart();
+  }
+  ​
+  function updateStats() {
+    // to get the total cases we get the last entry pushed into the casesList entry 
+    var totalCases = casesList[casesList.length - 1];
+    // to get the new confirmed case we subtract the last two entries in the casesList array from each other to get the difference
+    var newConfirmedCases = totalCases - casesList[casesList.length - 2];
+    // to latest recovered number is the last entry of the recoveredList array
+    var totalRecovered = recoveredList[recoveredList.length - 1];
+    // we subtract the last two entries from the recoveredList array to get the difference
+    var newRecoveredCases = totalRecovered - recoveredList[recoveredList.length - 2];
+    // get the last entry in the deathsList to get total deaths 
+    var totalDeaths = deathsList[deathsList.length - 1];
+    // subtract last two entries of the deathList array to get the new deaths stat
+    var newDeathsCases = totalDeaths - deathsList[deathsList.length - 2];
+  ​
+
