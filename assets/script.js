@@ -59,4 +59,14 @@ function fetchData(country) {
       "https://api.covid19api.com/total/country/" + country + "/status/confirmed",
       requestOptions
     )
+
+    // await used here to resolve the promise from .json()
+    var confirmedData = await confirmedRes.json()
+​
+    for (var i = 0; i < confirmedData.length; i++) {
+      // populate the dates array with entry dates from api
+      dates.push(confirmedData[i].Date);
+      // populate the casesList array with confirmed cases from api
+      casesList.push(confirmedData[i].Cases);
+    }
 }
