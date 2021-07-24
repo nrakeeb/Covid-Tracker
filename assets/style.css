@@ -3,7 +3,7 @@
     font-family: 'Neuton', serif;
 }
 body{
-    background-color: gold;
+    background-color: darkgrey;
     font-size: 20px;
 }
 /* hide search box after user selects country */
@@ -84,27 +84,27 @@ color: black;}
 }
 .title{
     font-size: 2em;
-    color: white;
+    color: black;
 }
 .total-cases .value{
     font-size: 1.8em;
     font-weight: bold;
-    color: white
+    color: black;
 }
 .recovered .value{
     font-size: 1.8em;
     font-weight: bold;
-    color: white;
+    color: black;
 }
 .deaths .value{
     font-size: 1.8em;
     font-weight: bold;
-    color: white;
+    color: black;
 }
 .new-value{
     font-size: 1.6em;
     font-weight: bold;
-    color: white;
+    color: black;
 }
 /* chart styling */
 .chart{
