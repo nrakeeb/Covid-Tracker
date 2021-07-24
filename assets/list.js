@@ -46,3 +46,8 @@ function changeCountr() {
     searchCountry.classlist.toggle("fadeIn");
 }
 
+// hides list of countries in drop-down menu upon clicking
+function close() {
+    searchCountry.classList.toggle("hide");
+}
+
