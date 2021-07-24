@@ -47,4 +47,16 @@ function fetchData(country) {
       method: "GET",
       redirect: "follow",
     };
+    
+    /**
+   * @ description apiFetch async function handles all the fetch requests needed to retrieve covid stats 
+   * @ returns json 
+   */
+  // function made asynchronous to resolve promise
+  async function apiFetch(country) {
+    //make request to covid api to get covid confirmed cases by country and save the results to confirmedRes variable
+    var confirmedRes = await fetch(
+      "https://api.covid19api.com/total/country/" + country + "/status/confirmed",
+      requestOptions
+    )
 }
