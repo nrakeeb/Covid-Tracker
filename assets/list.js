@@ -35,3 +35,14 @@ function createCountryList() {
 // How many lists declared in drop down
 var numOflists = 3;
 
+createCountryList();
+
+// upon user interaction via clicking displays search bar for user to search specific country 
+function changeCountr() {
+
+    input.value = ""
+    resetCountry();
+    searchCountry.classlist.toggle("hide");
+    searchCountry.classlist.toggle("fadeIn");
+}
+
