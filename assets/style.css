@@ -85,26 +85,31 @@ color: black;}
 .title{
     font-size: 2em;
     color: black;
+    text-align: center;
 }
 .total-cases .value{
     font-size: 1.8em;
     font-weight: bold;
     color: black;
+    text-align: center;
 }
 .recovered .value{
     font-size: 1.8em;
     font-weight: bold;
     color: black;
+    text-align: center;
 }
 .deaths .value{
     font-size: 1.8em;
     font-weight: bold;
     color: black;
+    text-align: center;
 }
 .new-value{
     font-size: 1.6em;
     font-weight: bold;
     color: black;
+    text-align: center;
 }
 /* chart styling */
 .chart{
