@@ -61,16 +61,15 @@ function userInput() {
     var value = input.value.toUppercase();
 
     for (let i = 0; i < country_list.length; i++) {
-
-
+        if (country.name.toUpperCase().startsWith(value)) {
+            document.getElementById(country.name).classList.remove("hide");
+        } else {
+            document.getElementById(country.name).classList.add("hide");
+        }
     }
-
-
-}
-
-function resetCountry() {
-
-    for (let i = 0; i < country_list.length; i++) {
-        document.getElementById(country.name).classList.remove("hide");
+    // resets country inputed by the user
+    function resetCountry() {
+        for (let i = 0; i < country_list.length; i++) {
+            document.getElementById(country.name).classList.remove("hide");
+        }
     }
-}
