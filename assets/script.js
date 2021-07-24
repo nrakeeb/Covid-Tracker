@@ -69,4 +69,41 @@ function fetchData(country) {
       // populate the casesList array with confirmed cases from api
       casesList.push(confirmedData[i].Cases);
     }
+
+    // /make request to covid api to get covid recovered cases by country and save the results to recoveredRes variable
+    var recoveredRes = await fetch(
+      "https://api.covid19api.com/total/country/" + country + "/status/recovered",
+      requestOptions
+    )
+​
+    // await used here to resolve the promise from .json()
+    var recoveredData = await recoveredRes.json();
+​
+​
+    for (var i = 0; i < recoveredData.length; i++) {
+      // populate the recoveredList array with recovered cases from api
+      recoveredList.push(recoveredData[i].Cases);
+    }
+​
+    //make request to covid api to get covid deaths by country and save the results to deathsRes variable
+    var deathsRes = await fetch(
+      "https://api.covid19api.com/total/country/" + country + "/status/deaths",
+      requestOptions
+    )
+    var deathsData = await deathsRes.json();
+​
+    for (var i = 0; i < deathsData.length; i++) {
+      // populate the deathsList array with covid deaths from api
+      deathsList.push(deathsData[i].Cases);
+    }
+    // call the updateUI function which 
+    updateUI();
+  };
+​
+  apiFetch(country);
 }
+​
+/**
+ * @ description calls the updateStats function which updates the stats with the results from the api call and the axesLinearChart function which creates a new chart
+ */
+
