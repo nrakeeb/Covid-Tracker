@@ -32,4 +32,6 @@ function createCountryList() {
     }
 }
 
+// How many lists declared in drop down
+var numOflists = 3;
 
