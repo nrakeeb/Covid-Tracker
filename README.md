@@ -30,4 +30,4 @@ THEN I am presented with a linear chart showing the history of these values
 * Main URL: https://mz0121coder.github.io/G7-Covid-Tracker/
 
 ## Screenshot
-![G7-Covid-Tracker-screenshot](assets/G7-Covid-Tracker-Screenshot.png)
+![G7-Covid-Tracker-screenshot](assets/G7-Covid-Tracker-screenshot.png)
