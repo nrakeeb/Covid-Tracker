@@ -40,10 +40,10 @@ createCountryList();
 // upon user interaction via clicking displays search bar for user to search specific country 
 function changeCountr() {
 
-    input.value = ""
+    input.value = "";
     resetCountry();
     searchCountry.classlist.toggle("hide");
-    searchCountry.classlist.toggle("fadeIn");
+    searchCountry.classlist.add("fadeIn");
 }
 
 // hides list of countries in drop-down menu upon clicking
@@ -60,11 +60,17 @@ function listG7() {
 function userInput() {
     var value = input.value.toUppercase();
 
+    for (let i = 0; i < country_list.length; i++) {
+
+
+    }
+
 
 }
 
 function resetCountry() {
-    countr_list.
 
-
+    for (let i = 0; i < country_list.length; i++) {
+        document.getElementById(country.name).classList.remove("hide");
+    }
 }
