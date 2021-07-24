@@ -63,3 +63,8 @@ function userInput() {
 
 }
 
+function resetCountry() {
+    countr_list.
+
+
+}
