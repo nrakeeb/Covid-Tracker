@@ -51,3 +51,8 @@ function close() {
     searchCountry.classList.toggle("hide");
 }
 
+// hides countries searched by user
+function listG7() {
+    searchCountry.classList.toggle("hide");
+}
+
