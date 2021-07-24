@@ -142,3 +142,54 @@ function updateStats() {
   }
 }
 
+// format line chart 
+var myChart;
+​
+/**
+ * @ description instantiate the Chart class
+ * @ params ctx variable which holds the 2d context of the canvas where the chart will be drawn
+ * @ params pre-defined chart-type with custom data sets passed through as an object
+ * 
+ */
+function axesLinearChart() {
+  // delete chart if it already exists 
+  if (myChart) {
+    myChart.destroy();
+  }
+  myChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      datasets: [
+        {
+          label: "Cases",
+          data: casesList,
+          fill: false,
+          borderColor: "#00008b",
+          backgroundColor: "#00008b",
+          borderWidth: 1,
+        },
+        {
+          label: "Recovered",
+          data: recoveredList,
+          fill: false,
+          borderColor: "#a9a9a9",
+          backgroundColor: "#a9a9a9",
+          borderWidth: 1,
+        },
+        {
+          label: "Deaths",
+          data: deathsList,
+          fill: false,
+          borderColor: "#ffa500",
+          backgroundColor: "#ffa500",
+          borderWidth: 1,
+        },
+      ],
+      labels: formatedDates,
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+    },
+  });
+}
