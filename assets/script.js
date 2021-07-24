@@ -193,3 +193,31 @@ function axesLinearChart() {
     },
   });
 }
+// array of month names for the formatDate function
+var monthsNames = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+​
+/**
+ * @ description formatDate function that changes date into a more readable format using javaScript Date object
+ * @ param date string
+ * @ returns new string with improved date format 
+ */
+​
+// changes date format from "2020-02-15T00:00:00Z" to "15 Feb"
+function formatDate(dateString) {
+  var date = new Date(dateString);
+​
+  return `${date.getDate()} ${monthsNames[date.getMonth()]}`;
+}
