@@ -135,4 +135,10 @@ function updateStats() {
   deathsEl.innerHTML = totalDeaths;
   newDeathsEl.innerHTML = `+${newDeathsCases}`;
 
+  // loops through each date in the dates array and passes them through as paramtres in the formatDate function.
+  // these formatted dates are then pushed into their own array
+  for (var i = 0; i < dates.length; i++) {
+    formatedDates.push(formatDate(dates[i]));
+  }
+}
 
