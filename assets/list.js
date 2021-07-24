@@ -56,3 +56,10 @@ function listG7() {
     searchCountry.classList.toggle("hide");
 }
 
+//
+function userInput() {
+    var value = input.value.toUppercase();
+
+
+}
+
