@@ -1,70 +1,72 @@
 <!--Adding relevant links to create a responsive layout-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--link Bulma framework-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/style.css" />
-    <!--Link for Google font-->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@700&display=swap" rel="stylesheet">
-    <title>G7 Covid-Tracker</title>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--link Bulma framework-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
+  <link rel="stylesheet" href="assets/style.css" />
+  <!--Link for Google font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@700&display=swap" rel="stylesheet">
+  <title>G7 Covid-Tracker</title>
 </head>
 
 <body>
-    <header>
-        G7 Covid Dashboard
-    </header>
-    <!--Main country search section-->
-    <main>
-        <div class="info">
-            <div class="list">
-                <div class="search">Search for a country</div>
-                <div class="change">Click to search</div>
-                <div class="search hide">
-                    <div class="box">
-                        <input type="text" id="search-input" placeholder="Search Country....">
-                        <!-- Link for SVG file to close searches-->
-                        <img class="close" src="/assets/close.svg" alt="">
-                    </div>
-                </div>
-                <div class="g7-list"></div>
-            </div>
-            <!-- main info section -->
-        </div>
-        <!-- total cases info (all time + new) -->
-        <div class="total-cases">
-            <div class="title">Total Cases</div>
-            <div class="value">0</div>
-            <div class="new-value">+0</div>
-          </div>
-          <!-- recovered cases info (all time + new)-->
-          <div class="recovered">
-            <div class="title">Recovered</div>
-            <div class="value">0</div>
-            <div class="new-value">+0</div>
-          </div>
-          <!-- deaths info (all time + new)-->
-          <div class="deaths">
-            <div class="title">Deaths</div>
-            <div class="value">0</div>
-            <div class="new-value">+0</div>
+  <header>
+    G7 Covid Dashboard
+  </header>
+  <!--Main country search section-->
+  <main>
+    <div class="info">
+      <div class="list">
+        <div class="search">Search for a country</div>
+        <div class="change" onclick="changeCountr()">Click to search</div>
+        <div class="search hide">
+          <div class="box">
+            <input type="text" id="search-input" placeholder="Search Country...." oninput="userInput ()">
+            <!-- Link for SVG file to close searches-->
+            <img class="close" src="/assets/close.svg" alt="" onclick="close()">
           </div>
         </div>
-        <!-- line chart representing trajectory of cases from main info section-->
-        <div class="chart">
-          <canvas id="axes_line_chart"></canvas>
-        </div>
+        <div class="g7-list" onclick="listG7 ()"></div>
+      </div>
+      <!-- main info section -->
     </div>
- </main>
- <!-- link Chart.js, script.js and list.js -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-<script src="assets/list.js"></script>
-<script src="assets/script.js"></script>  
+    <!-- total cases info (all time + new) -->
+    <div class="total-cases">
+      <div class="title">Total Cases</div>
+      <div class="value">0</div>
+      <div class="new-value">+0</div>
+    </div>
+    <!-- recovered cases info (all time + new)-->
+    <div class="recovered">
+      <div class="title">Recovered</div>
+      <div class="value">0</div>
+      <div class="new-value">+0</div>
+    </div>
+    <!-- deaths info (all time + new)-->
+    <div class="deaths">
+      <div class="title">Deaths</div>
+      <div class="value">0</div>
+      <div class="new-value">+0</div>
+    </div>
+    </div>
+    <!-- line chart representing trajectory of cases from main info section-->
+    <div class="chart">
+      <canvas id="axes_line_chart"></canvas>
+    </div>
+    </div>
+  </main>
+  <!-- link Chart.js, script.js and list.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="assets/list.js"></script>
+  <script src="assets/script.js"></script>
 </body>
+
 </html>
