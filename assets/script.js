@@ -1,13 +1,16 @@
 // declaring variables for all measured statistics
-var countryNameEl = $(".country .name")[0];
-var totalCasesEl = $(".total-cases .value")[0];
-var newCasesEl = $(".total-cases .new-value")[0];
-var recoveredEl = $(".recovered .value")[0];
-var newRecoveredEl = $(".recovered .new-value")[0];
-var deathsEl = $(".deaths .value")[0];
-var newDeathsEl = $(".deaths .new-value")[0];
-
+var countryNameEl = document.querySelector(".country");
+var totalCasesEl = document.querySelector(".total-cases .value");
+var newCasesEl = document.querySelector(".total-cases .new-value");
+var recoveredEl = document.querySelector(".recovered .value");
+var newRecoveredEl = document.querySelector(".recovered .new-value");
+var deathsEl = document.querySelector(".deaths .value");
+var newDeathsEl = document.querySelector(".deaths .new-value");
+var userInputEl = document.getElementById("userInput");
+var searchBtnEl = document.getElementById("searchBtn");
 var ctx = document.getElementById("axesLineChart").getContext("2d");
+var previousSearchesList = document.getElementById("list")
+
 
 // list main variables
 var appData = [];
