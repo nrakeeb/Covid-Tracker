@@ -19,45 +19,46 @@ var recoveredList = [];
 var deathsList = [];
 var dates = [];
 var formatedDates = [];
+var userCountry;
+var country;
+var countryName;
+var searchesArray = [];
 
-// fetch country codes from api
-// async/await not used here because fetch isn't inside a function, .then is used instead to handle the promise
+// when search button clicked it calls the function apiFetch
+
+searchBtnEl.addEventListener("click", function () {
+  country = userInputEl.value
+  apiFetch(country)
+});
+// document.getElementById("userInput").onfocus = function() {showRecentSearches()};
+
+
+// // fetch country codes from api
+// // async/await not used here because fetch isn't inside a function, .then is used instead to handle the promise
 fetch("https://api.ipgeolocation.io/ipgeo?apiKey=87c06e069cab4ce597da9c4dc04165d3")
   .then(function (res) {
     return res.json(); // list of countries 
   })
 
   .then(function (data) {
-    var countryCode = data.country_code2;// inside json it has a county code 
-    var userCountry;
-
-    // this matches the code from list.js with the data fetched from the api.geolocation
-    // country_list is accessible because a variable in the global scope is accessible to all scripts loaded after it is declared.
-    for (var i = 0; i < country_list.length; i++) {
-      if (country_list[i].code === countryCode) {
-        userCountry = country_list[i].name
-      }
-    }
-    fetchData(userCountry);
+    apiFetch(data.country_name);
   });
 
-// fetch API data (cases, recovered, deaths,)
-function fetchData(country) {
-  userCountry = country;
-  countryNameEl.innerHTML = "Loading...";
+/**
+* @ description apiFetch async function handles all the fetch requests needed to retrieve covid stats 
+* @ returns json 
+*/
+// function made asynchronous to resolve promise
+async function apiFetch(country) {
+  if (country !== "") {
 
-  var requestOptions = {
-    method: "GET",
-    redirect: "follow",
-  };
-
-  /**
- * @ description apiFetch async function handles all the fetch requests needed to retrieve covid stats 
- * @ returns json 
- */
-  // function made asynchronous to resolve promise
-  async function apiFetch(country) {
     //make request to covid api to get covid confirmed cases by country and save the results to confirmedRes variable
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    }
+
+
     var confirmedRes = await fetch(
       "https://api.covid19api.com/total/country/" + country + "/status/confirmed",
       requestOptions
