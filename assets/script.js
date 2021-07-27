@@ -1,13 +1,16 @@
 // declaring variables for all measured statistics
-var countryNameEl = $(".country .name")[0];
-var totalCasesEl = $(".total-cases .value")[0];
-var newCasesEl = $(".total-cases .new-value")[0];
-var recoveredEl = $(".recovered .value")[0];
-var newRecoveredEl = $(".recovered .new-value")[0];
-var deathsEl = $(".deaths .value")[0];
-var newDeathsEl = $(".deaths .new-value")[0];
-
+var countryNameEl = document.querySelector(".country");
+var totalCasesEl = document.querySelector(".total-cases .value");
+var newCasesEl = document.querySelector(".total-cases .new-value");
+var recoveredEl = document.querySelector(".recovered .value");
+var newRecoveredEl = document.querySelector(".recovered .new-value");
+var deathsEl = document.querySelector(".deaths .value");
+var newDeathsEl = document.querySelector(".deaths .new-value");
+var userInputEl = document.getElementById("userInput");
+var searchBtnEl = document.getElementById("searchBtn");
 var ctx = document.getElementById("axesLineChart").getContext("2d");
+var previousSearchesList = document.getElementById("list")
+
 
 // list main variables
 var appData = [];
@@ -16,45 +19,46 @@ var recoveredList = [];
 var deathsList = [];
 var dates = [];
 var formatedDates = [];
+var userCountry;
+var country;
+var countryName;
+var searchesArray = [];
 
-// fetch country codes from api
-// async/await not used here because fetch isn't inside a function, .then is used instead to handle the promise
+// when search button clicked it calls the function apiFetch
+
+searchBtnEl.addEventListener("click", function () {
+  country = userInputEl.value
+  apiFetch(country)
+});
+// document.getElementById("userInput").onfocus = function() {showRecentSearches()};
+
+
+// // fetch country codes from api
+// // async/await not used here because fetch isn't inside a function, .then is used instead to handle the promise
 fetch("https://api.ipgeolocation.io/ipgeo?apiKey=87c06e069cab4ce597da9c4dc04165d3")
   .then(function (res) {
     return res.json(); // list of countries 
   })
 
   .then(function (data) {
-    var countryCode = data.country_code2;// inside json it has a county code 
-    var userCountry;
-
-    // this matches the code from list.js with the data fetched from the api.geolocation
-    // country_list is accessible because a variable in the global scope is accessible to all scripts loaded after it is declared.
-    for (var i = 0; i < country_list.length; i++) {
-      if (country_list[i].code === countryCode) {
-        userCountry = country_list[i].name
-      }
-    }
-    fetchData(userCountry);
+    apiFetch(data.country_name);
   });
 
-// fetch API data (cases, recovered, deaths,)
-function fetchData(country) {
-  userCountry = country;
-  countryNameEl.innerHTML = "Loading...";
+/**
+* @ description apiFetch async function handles all the fetch requests needed to retrieve covid stats 
+* @ returns json 
+*/
+// function made asynchronous to resolve promise
+async function apiFetch(country) {
+  if (country !== "") {
 
-  var requestOptions = {
-    method: "GET",
-    redirect: "follow",
-  };
-
-  /**
- * @ description apiFetch async function handles all the fetch requests needed to retrieve covid stats 
- * @ returns json 
- */
-  // function made asynchronous to resolve promise
-  async function apiFetch(country) {
     //make request to covid api to get covid confirmed cases by country and save the results to confirmedRes variable
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    }
+
+
     var confirmedRes = await fetch(
       "https://api.covid19api.com/total/country/" + country + "/status/confirmed",
       requestOptions
@@ -62,6 +66,7 @@ function fetchData(country) {
 
     // await used here to resolve the promise from .json()
     var confirmedData = await confirmedRes.json()
+    userCountry = confirmedData[0].Country
 
     for (var i = 0; i < confirmedData.length; i++) {
       // populate the dates array with entry dates from api
@@ -96,11 +101,9 @@ function fetchData(country) {
       // populate the deathsList array with covid deaths from api
       deathsList.push(deathsData[i].Cases);
     }
-    // call the updateUI function which 
-    updateUI();
-  };
-
-  apiFetch(country);
+  }
+  // call the updateUI function which 
+  updateUI();
 }
 
 /**
@@ -110,6 +113,7 @@ function fetchData(country) {
 function updateUI() {
   updateStats();
   axesLinearChart();
+  storeSearch();
 }
 
 function updateStats() {
@@ -144,7 +148,7 @@ function updateStats() {
 
 // format line chart 
 var myChart;
-​
+
 /**
  * @ description instantiate the Chart class
  * @ params ctx variable which holds the 2d context of the canvas where the chart will be drawn
@@ -208,16 +212,46 @@ var monthsNames = [
   "Nov",
   "Dec",
 ];
-​
+
 /**
  * @ description formatDate function that changes date into a more readable format using javaScript Date object
  * @ param date string
  * @ returns new string with improved date format 
  */
-​
 // changes date format from "2020-02-15T00:00:00Z" to "15 Feb"
 function formatDate(dateString) {
   var date = new Date(dateString);
-​
+
   return `${date.getDate()} ${monthsNames[date.getMonth()]}`;
+}
+
+function storeSearch() {
+  // if country is not null, run the below function
+  if (country != null) {
+    // if local storage is empty, then usersearches pushed into the array
+    if (localStorage.getItem('userSearches') === null) {
+      searchesArray.push(country)
+      localStorage.setItem('userSearches', JSON.stringify(searchesArray))
+      //  if local storage is not emply, add usersearches onto existing array
+    } else {
+      searchesArray = JSON.parse(localStorage.getItem('userSearches'))
+      // make sure duplicate vales are not saved onto local storage. IndexOf loops through the array and returns the index of item in the array.
+      if (searchesArray.indexOf(country) == -1) {
+        searchesArray.push(country);
+      }
+      localStorage.setItem('userSearches', JSON.stringify(searchesArray))
+    }
+  }
+}
+// get searches from local storage to show as list on web once the input box is clicked
+function showRecentSearches() {
+  if (JSON.parse(localStorage.getItem('userSearches')) != null) {
+    searchesArray = JSON.parse(localStorage.getItem('userSearches'));
+    previousSearchesList.innerHTML = ""
+    for (var i = 0; i < searchesArray.length; i++) {
+      var searchItem = document.createElement("li")
+      searchItem.innerHTML = searchesArray[i]
+      previousSearchesList.appendChild(searchItem)
+    }
+  }
 }

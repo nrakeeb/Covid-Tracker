@@ -14,31 +14,47 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@700&display=swap" rel="stylesheet">
-  <title>G7 Covid-Tracker</title>
+  <title>Covid-Tracker</title>
 </head>
 
 <body>
-  <header>
-    G7 Covid Dashboard
-  </header>
-  <!--Main country search section-->
-  <main>
-    <div class="info">
-      <div class="list">
-        <div class="search">Search for a country</div>
-        <div class="change" onclick="changeCountr()">Click to search</div>
-        <div class="search hide">
-          <div class="box">
-            <input type="text" id="search-input" placeholder="Search Country...." oninput="userInput ()">
-            <!-- Link for SVG file to close searches-->
-            <img class="close" src="/assets/close.svg" alt="" onclick="close()">
+  </nav> with title and search bar-->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <header class="navbar-item"> Covid Dashboard
+      </header>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field has-addons">
+            <div class="control">
+              <!-- search box for users input and show local storage searches -->
+              <div class="dropdown">
+                <div class="dropdown-trigger">
+                  <input id="userInput" class="input" type="text" placeholder="Enter country" aria-haspopup="true" aria-controls="dropdown-menu3"
+                onfocus="showRecentSearches()">
+                <ul id="list"></ul>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                  <div class="dropdown-content">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="control">
+              <a id="searchBtn" class="button is-info">
+                Search
+              </a>
+            </div>
           </div>
         </div>
-        <div class="g7-list" onclick="listG7 ()"></div>
       </div>
-      <!-- main info section -->
     </div>
-    <!-- total cases info (all time + new) -->
+  </nav>
+  <!--Main country search section-->
+  <main>
+    <div class="country"></div>
     <div class="total-cases">
       <div class="title">Total Cases</div>
       <div class="value">0</div>
@@ -59,15 +75,15 @@
     </div>
     <!-- line chart representing trajectory of cases from main info section-->
     <div class="chart">
-      <canvas id="axes_line_chart"></canvas>
+      <canvas id="axesLineChart"></canvas>
     </div>
     </div>
   </main>
   <!-- link Chart.js, script.js and list.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-  <script src="assets/list.js"></script>
-  <script src="assets/script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="./assets/list.js"></script>
+  <script src="./assets/script.js"></script>
 </body>
 
 </html>
