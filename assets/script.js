@@ -66,6 +66,7 @@ async function apiFetch(country) {
 
     // await used here to resolve the promise from .json()
     var confirmedData = await confirmedRes.json()
+    userCountry = confirmedData[0].Country
 
     for (var i = 0; i < confirmedData.length; i++) {
       // populate the dates array with entry dates from api
@@ -100,11 +101,9 @@ async function apiFetch(country) {
       // populate the deathsList array with covid deaths from api
       deathsList.push(deathsData[i].Cases);
     }
-    // call the updateUI function which 
-    updateUI();
-  };
-
-  apiFetch(country);
+  }
+  // call the updateUI function which 
+  updateUI();
 }
 
 /**
@@ -114,6 +113,7 @@ async function apiFetch(country) {
 function updateUI() {
   updateStats();
   axesLinearChart();
+  storeSearch();
 }
 
 function updateStats() {
@@ -148,7 +148,7 @@ function updateStats() {
 
 // format line chart 
 var myChart;
-​
+
 /**
  * @ description instantiate the Chart class
  * @ params ctx variable which holds the 2d context of the canvas where the chart will be drawn
@@ -212,16 +212,46 @@ var monthsNames = [
   "Nov",
   "Dec",
 ];
-​
+
 /**
  * @ description formatDate function that changes date into a more readable format using javaScript Date object
  * @ param date string
  * @ returns new string with improved date format 
  */
-​
 // changes date format from "2020-02-15T00:00:00Z" to "15 Feb"
 function formatDate(dateString) {
   var date = new Date(dateString);
-​
+
   return `${date.getDate()} ${monthsNames[date.getMonth()]}`;
+}
+
+function storeSearch() {
+  // if country is not null, run the below function
+  if (country != null) {
+    // if local storage is empty, then usersearches pushed into the array
+    if (localStorage.getItem('userSearches') === null) {
+      searchesArray.push(country)
+      localStorage.setItem('userSearches', JSON.stringify(searchesArray))
+      //  if local storage is not emply, add usersearches onto existing array
+    } else {
+      searchesArray = JSON.parse(localStorage.getItem('userSearches'))
+      // make sure duplicate vales are not saved onto local storage. IndexOf loops through the array and returns the index of item in the array.
+      if (searchesArray.indexOf(country) == -1) {
+        searchesArray.push(country);
+      }
+      localStorage.setItem('userSearches', JSON.stringify(searchesArray))
+    }
+  }
+}
+// get searches from local storage to show as list on web once the input box is clicked
+function showRecentSearches() {
+  if (JSON.parse(localStorage.getItem('userSearches')) != null) {
+    searchesArray = JSON.parse(localStorage.getItem('userSearches'));
+    previousSearchesList.innerHTML = ""
+    for (var i = 0; i < searchesArray.length; i++) {
+      var searchItem = document.createElement("li")
+      searchItem.innerHTML = searchesArray[i]
+      previousSearchesList.appendChild(searchItem)
+    }
+  }
 }
