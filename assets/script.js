@@ -64,6 +64,12 @@ async function apiFetch(country) {
       requestOptions
     )
 
+    casesList = [];
+    recoveredList = [];
+    deathsList = [];
+    dates = [];
+    formatedDates = [];
+
     // await used here to resolve the promise from .json()
     var confirmedData = await confirmedRes.json()
     userCountry = confirmedData[0].Country
@@ -160,6 +166,7 @@ function axesLinearChart() {
   if (myChart) {
     myChart.destroy();
   }
+
   myChart = new Chart(ctx, {
     type: "line",
     data: {
