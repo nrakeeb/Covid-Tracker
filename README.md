@@ -17,6 +17,11 @@ WHEN I view a country’s statistics
 THEN I am presented with a linear chart showing the history of these values
 
 ```
+## Description
+With the use of the ip geolocation api, when user enters the webside they are automatically presented with the stats of the country they are based.
+This will present three statistics of total cases, recovered, and deaths. It will also present a chart with the country statstics throughout the months.
+User are able to see other countries by typing the country they desire in the search bar. 
+All previous searches will be displayed once input box is clicked.
 
 ## Resources & Technologies used  
 
