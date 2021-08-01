@@ -1,4 +1,4 @@
-# G7-Covid-Tracker
+# Covid-Tracker
 
 A dynamic application to preview and interact with a geolocation API & Covid19 database.
 This is a work in progress which we may revisit in the future. 
@@ -8,7 +8,7 @@ Created on the following user story:
 
 ```
 AS a policy maker
-I WANT to quickly gather Covid19 statistics for G7 countries
+I WANT to quickly gather Covid19 statistics for Countries
 SO THAT I can analyse this information 
 GIVEN a Covid19 dashboard with user inputs
 WHEN I search or select a country 
@@ -30,4 +30,4 @@ THEN I am presented with a linear chart showing the history of these values
 * Main URL: https://mz0121coder.github.io/G7-Covid-Tracker/
 
 ## Screenshot
-![G7-Covid-Tracker-screenshot](assets/G7-Covid-Tracker-screenshot.png)
+![Covid-Tracker-screenshot](assets/G7-Covid-Tracker-screenshot.png)
