@@ -26,8 +26,8 @@ THEN I am presented with a linear chart showing the history of these values
 [Chart.js](https://www.chartjs.org/) - JavaScript charting
 
 ## Working links 
-* Repo: https://github.com/mz0121coder/G7-Covid-Tracker/
-* Main URL: https://mz0121coder.github.io/G7-Covid-Tracker/
+* Repo: https://github.com/nrakeeb/Covid-Tracker
+* Main URL: https://nrakeeb.github.io/Covid-Tracker/
 
 ## Screenshot
 ![Covid-Tracker-screenshot](assets/G7-Covid-Tracker-screenshot.png)
