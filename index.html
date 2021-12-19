@@ -24,51 +24,53 @@
     </div>
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="field has-addons">
-            <div class="control">
-              <!-- search box for users input and show local storage searches -->
-              <div class="dropdown">
-                <div class="dropdown-trigger">
-                  <input id="userInput" class="input" type="text" placeholder="Enter country" aria-haspopup="true" aria-controls="dropdown-menu3"
-                onfocus="showRecentSearches()">
+        <!-- <div class="navbar-item"> -->
+        <div class="field has-addons">
+          <div class="control">
+            <!-- search box for users input and show local storage searches -->
+            <div class="dropdown">
+              <div class="dropdown-trigger">
+                <input id="userInput" class="input" type="text" placeholder="Enter country" aria-haspopup="true"
+                  aria-controls="dropdown-menu3" onfocus="showRecentSearches()">
                 <ul id="list"></ul>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-                  <div class="dropdown-content">
-                  </div>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                <div class="dropdown-content">
                 </div>
               </div>
             </div>
-            <div class="control">
-              <a id="searchBtn" class="button is-info">
-                Search
-              </a>
-            </div>
+          </div>
+          <div class="control">
+            <a id="searchBtn" class="button is-info">
+              Search
+            </a>
           </div>
         </div>
       </div>
     </div>
+    </div>
   </nav>
   <!--Main country search section-->
   <main>
-    <div class="country"></div>
-    <div class="total-cases">
-      <div class="title">Total Cases</div>
-      <div class="value">0</div>
-      <div class="new-value">+0</div>
-    </div>
-    <!-- recovered cases info (all time + new)-->
-    <div class="recovered">
-      <div class="title">Recovered</div>
-      <div class="value">0</div>
-      <div class="new-value">+0</div>
-    </div>
-    <!-- deaths info (all time + new)-->
-    <div class="deaths">
-      <div class="title">Deaths</div>
-      <div class="value">0</div>
-      <div class="new-value">+0</div>
+    <div class="container">
+      <div class="country"></div>
+      <div class="total-cases">
+        <div class="title">Total Cases</div>
+        <div class="value">0</div>
+        <div class="new-value">+0</div>
+      </div>
+      <!-- recovered cases info (all time + new)-->
+      <div class="recovered">
+        <div class="title">Recovered</div>
+        <div class="value">0</div>
+        <div class="new-value">+0</div>
+      </div>
+      <!-- deaths info (all time + new)-->
+      <div class="deaths">
+        <div class="title">Deaths</div>
+        <div class="value">0</div>
+        <div class="new-value">+0</div>
+      </div>
     </div>
     </div>
     <!-- line chart representing trajectory of cases from main info section-->
