@@ -35,4 +35,6 @@ All previous searches will be displayed once input box is clicked.
 * Main URL: https://nrakeeb.github.io/Covid-Tracker/
 
 ## Screenshot
-![Covid-Tracker-screenshot](assets/G7-Covid-Tracker-screenshot.png)
+
+![covid dashboard](https://user-images.githubusercontent.com/82734765/146660473-0274e075-d872-442e-8184-26b3c83781db.PNG)
+
